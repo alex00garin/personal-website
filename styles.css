@@ -199,7 +199,7 @@ nav ul li a:hover {
 /* responsive */
   @media screen and (max-width: 600px) {
     body {
-      height: 100%;
+      height: 100vh;
       background: var(--primary-color);
     }
     .back {
