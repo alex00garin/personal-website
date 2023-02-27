@@ -28,7 +28,7 @@
     height: 100%;
     background: var(--primary-color);
     font-family: sans-serif;
-    position: relative;
+    position: absolute;
 }
 
 nav {
