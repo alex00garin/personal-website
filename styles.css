@@ -198,14 +198,13 @@ nav ul li a:hover {
 
 /* responsive */
   @media screen and (max-width: 600px) {
-      
     body {
       width: auto;
-      height: 100vh;
+      height: auto;
       background: var(--primary-color);
     }
     .back {
-      width: 100%;
+      /* width: auto; */
       height: 100%;
       background: var(--primary-color);
       font-family: sans-serif;
@@ -226,13 +225,13 @@ nav ul li a:hover {
     }
     .logo {
       width: 50px;
-      cursor: pointer;
+      
     }
     nav ul li {
       font-size: 70%;
       display: inline-block;
       list-style: none;
-      margin: 5px 5px;
+      margin: 5px 10px;
       padding: 3px 3px;
       position: relative;
       z-index: 2;
@@ -249,6 +248,7 @@ nav ul li a:hover {
       color: var(--seconadry-color);
       line-height: 20px;
       margin-right: 10%;
+      margin-top: 50px;
     }
     #icon {
       width: 20px;
@@ -258,9 +258,11 @@ nav ul li a:hover {
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-      /* margin-top: 250px; */
+      margin-top: 450px;
     }
-    .button {
+    .button a {
       font-size: 80%; 
+        margin-top: 100px;
+        margin-left: 25%;
     }
   }
