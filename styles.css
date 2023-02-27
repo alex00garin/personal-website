@@ -198,6 +198,17 @@ nav ul li a:hover {
 
 /* responsive */
   @media screen and (max-width: 600px) {
+    body {
+      height: 100%;
+      background: var(--primary-color);
+    }
+    .back {
+      /* width: auto; */
+      height: 100%;
+      background: var(--primary-color);
+      font-family: sans-serif;
+      position: relative;
+    }
     nav {
       width:  100%;
       height: 50px;
@@ -245,7 +256,7 @@ nav ul li a:hover {
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-      margin-top: 250px;
+      /* margin-top: 250px; */
     }
     .button {
       font-size: 80%; 
