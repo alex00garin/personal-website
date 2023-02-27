@@ -199,6 +199,7 @@ nav ul li a:hover {
 /* responsive */
   @media screen and (max-width: 600px) {
     body {
+      width: auto;
       height: 100vh;
       background: var(--primary-color);
     }
