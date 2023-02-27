@@ -189,7 +189,7 @@ nav ul li a:hover {
   #preloader {
     background: #d5d5d5 url(./logo/preloader.gif) no-repeat center center;
     background-size: 15%;
-    height: 100vh;
+    height: auto;
     width: 100%;
     position: fixed;
     z-index: 100;
