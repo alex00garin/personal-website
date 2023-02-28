@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+body {
+      width: auto;
+      height: auto;
+      background: var(--primary-color);
+}
+
 :root {
     --primary-color: #d5d5d5;
     --seconadry-color: #3e3d3d;    
