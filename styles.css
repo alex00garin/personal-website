@@ -204,11 +204,8 @@ nav ul li a:hover {
 
 /* responsive */
   @media screen and (max-width: 600px) {
- * {
-      /* height: 100rem; */
-    }
-    body {
-      height: 100%;
+     body {
+      height: auto;
       width: auto;  
       background: var(--primary-color);
     }
@@ -219,21 +216,17 @@ nav ul li a:hover {
     }
     nav {
       width:  100%;
-      height: 50px;
-      top: 0;
-      bottom: auto;
+      height: 4rem;
       padding: 0.2rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       border-radius: 10px;
       box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.4);
       box-sizing: border-box;
     }
     .logo {
-      width: 4rem;
-      padding: 0;
-      
+      width: 4rem; 
+      margin-right: 0.5rem;
     }
     nav ul li {
       font-size: 55%;
@@ -244,7 +237,6 @@ nav ul li a:hover {
       position: relative;
       z-index: 2;
       transition: color 0.5s;
-      font-weight: 500;
       cursor: pointer;
     }
     .info h1 {
@@ -256,7 +248,7 @@ nav ul li a:hover {
       color: var(--seconadry-color);
       line-height: 20px;
       margin-right: 10%;
-      margin-top: 60px;
+      margin-top: 5rem;
     }
     #icon {
       width: 1rem;
@@ -266,7 +258,6 @@ nav ul li a:hover {
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-      margin-top: 15rem;
     }
     .button {
       font-size: 80%;
