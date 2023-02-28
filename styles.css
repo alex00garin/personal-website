@@ -204,14 +204,15 @@ nav ul li a:hover {
 
 /* responsive */
   @media screen and (max-width: 600px) {
-    body {
-      width: auto;
+  * {
       height: auto;
+    }
+    body {
+      height: 100%;
+      width: auto;  
       background: var(--primary-color);
     }
-    .back {
-      /* width: auto; */
-      height: 100%;
+    .back { 
       background: var(--primary-color);
       font-family: sans-serif;
       position: relative;
@@ -221,7 +222,7 @@ nav ul li a:hover {
       height: 50px;
       top: 0;
       bottom: auto;
-      padding: 0px 20px;
+      padding: 0px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -230,15 +231,16 @@ nav ul li a:hover {
       box-sizing: border-box;
     }
     .logo {
-      width: 50px;
+      width: 4rem;
+      padding: 0;
       
     }
     nav ul li {
-      font-size: 60%;
+      font-size: 55%;
       display: inline-block;
       list-style: none;
-      margin: 3px 3px;
-      padding: 1px 1px;
+      margin: 0;
+      padding: 0.2rem 0.2rem;
       position: relative;
       z-index: 2;
       transition: color 0.5s;
@@ -254,20 +256,20 @@ nav ul li a:hover {
       color: var(--seconadry-color);
       line-height: 20px;
       margin-right: 10%;
+      margin-top: 60px;
     }
     #icon {
       width: 20px;
       cursor: pointer;
-      margin-left: auto;
+      margin-left: 1rem;
     }
     .social-links { 
       justify-content: center;
       margin-left: 25%;
       margin-top: 25rem;
     }
-    .button a {
+    .button {
       font-size: 80%;
       margin-left: 25%;
-      
     }
   }
