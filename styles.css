@@ -31,7 +31,7 @@ body {
 
 .back {
     width: 100%;
-    height: auto;
+    height: 100%;
     background: var(--primary-color);
     font-family: sans-serif;
     position: relative;
@@ -134,7 +134,7 @@ nav ul li a:hover {
 
 .social-links {
     margin-left: 8%;
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .social-links a {
