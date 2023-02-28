@@ -222,7 +222,7 @@ nav ul li a:hover {
       height: 50px;
       top: 0;
       bottom: auto;
-      padding: 0px 30px;
+      padding: 0.2rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
