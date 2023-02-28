@@ -261,12 +261,12 @@ nav ul li a:hover {
     #icon {
       width: 20px;
       cursor: pointer;
-      margin-left: 1rem;
+      margin-left: 3rem;
     }
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-      margin-top: 25rem;
+      margin-top: 23rem;
     }
     .button {
       font-size: 80%;
