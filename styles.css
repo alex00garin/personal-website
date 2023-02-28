@@ -263,11 +263,11 @@ nav ul li a:hover {
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-/*       margin-top: 100px; */
+      margin-top: 20rem;
     }
     .button a {
       font-size: 80%;
       margin-left: 25%;
-      margin-top: 40rem;
+      
     }
   }
