@@ -134,7 +134,7 @@ nav ul li a:hover {
 
 .social-links {
     margin-left: 8%;
-    margin-top: 20rem;
+    margin-top: 15rem;
 }
 
 .social-links a {
@@ -259,15 +259,14 @@ nav ul li a:hover {
       margin-top: 60px;
     }
     #icon {
-      width: 20px;
+      width: 1rem;
       cursor: pointer;
       margin-left: 1rem;
     }
     .social-links { 
       justify-content: center;
       margin-left: 25%;
-      
-      /* margin-bottom: 0; */
+      margin-top: 15rem;
     }
     .button {
       font-size: 80%;
