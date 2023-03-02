@@ -66,7 +66,7 @@ nav ul li {
     cursor: pointer;
 }
 
-/* nav ul li::after {
+nav ul li::after {
     content: ' ';
     background: #97978D;
     width: 100%;
@@ -92,7 +92,7 @@ nav ul li:hover::after {
 
 nav ul li a:hover {
     color: #494942;
-} */
+}
 
 nav ul li a {
     text-decoration: none;
@@ -100,13 +100,10 @@ nav ul li a {
     
 }
 
-
-
 .info {
     margin-left: 8%;
     margin-top: 15%;
 }
-
 
 .info h1 {
     font-size: 70px;
@@ -132,7 +129,6 @@ nav ul li a {
     margin: 30px 0;
     border-radius: 5px;
 }
-
 
 .social-links {
     margin-left: 8%;
@@ -203,6 +199,27 @@ nav ul li a {
     z-index: 100;
   }
 
+
+@media screen and (max-width: 600px) {
+  nav a:not(:first-child) {display: none;}
+  nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  nav.responsive {position: relative;}
+    nav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 
 /* responsive *
 /*   @media screen and (max-width: 600px) {
