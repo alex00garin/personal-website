@@ -66,7 +66,7 @@ nav ul li {
     cursor: pointer;
 }
 
-nav ul li::after {
+/* nav ul li::after {
     content: ' ';
     background: #97978D;
     width: 100%;
@@ -79,7 +79,7 @@ nav ul li::after {
     z-index: -1;
     opacity: 0;
     transition: top 0.5s, opacity 0.5s  ;
-}
+} */
 
 nav ul li:hover {
     color: #3e3d3d;
