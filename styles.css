@@ -213,6 +213,7 @@ body {
     overflow-y: hidden;
     top: 100px;
     left: 0px;
+    z-index: 3;
   }
   .nav > .nav-links > a {
     display: block;
@@ -222,6 +223,7 @@ body {
     top: 50px;
     justify-content: space-between;
     border-radius: 5px;
+    z-index: 3;
   }
   .nav > #nav-check:not(:checked) ~ .nav-links {
     height: 0px;
