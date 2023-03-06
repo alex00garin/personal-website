@@ -114,6 +114,7 @@ body {
 .social-links {
   margin-left: 8%;
   margin-top: 14rem;
+  align-items: end;
 }
 
 .social-links a {
