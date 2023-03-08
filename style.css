@@ -36,6 +36,8 @@ body {
 
 .info-text {
     font-size: 40px;
+    display: table;
+    margin: 0 auto;
 }
 
 .button {
