@@ -63,6 +63,7 @@ body {
     background-color: #282828;
     padding-block: 15px;
     border-radius: 5px;
+    padding: 20px;
 }
 .navbar a {
     text-decoration: none;
@@ -83,6 +84,12 @@ body {
     display: none;
 }
 @media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .logo {
+        width: 30%;
+    }
     .work {
         width: 150px;
     }
