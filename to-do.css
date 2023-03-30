@@ -1,0 +1,213 @@
+/* Import font */
+@import url("https://fonts.googleapis.com/css2?family=Wire+One:wght@400&amp;display=swap");
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Wire One";
+    font-size: 50px;
+    background-color: #404040;
+    padding: 50px;
+}
+/* General styles end */
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #282828;
+    padding-block: 15px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.logo {
+    margin-right: 50px;
+    width: 25%;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+#toggler,
+.navbar label {
+    display: none;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px;
+    align-items: center;
+    color: #e6e6e6;
+    text-align: center;
+    font-size: 40px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    height: 60px;
+}
+
+input[type="text"] {
+    flex-grow: 0;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 100%;
+    font-family: "Wire One";
+    font-size: 30px;
+    width: 100%;
+}
+
+button[type="submit"] {
+    background-color: #e6e6e6;
+    border: none;
+    border-radius: 5px;
+    color: #404040;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    height: 100%;
+    font-family: "Wire One";
+}
+
+button[type="submit"]:hover {
+    background-color: #739c80;
+}
+
+#task-list {
+    margin: 0 auto 10px auto;
+    ;
+  }
+
+#task-list li {
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 36px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #282828;
+}
+
+#task-list span {
+    margin-right: 10px;
+}
+
+#task-list button {
+    background-color: #404040;
+    border: none;
+    border-radius: 5px;
+    color: #e6e6e6;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    cursor: pointer;
+    font-family: "Wire One";
+}
+
+#task-list button:hover {
+    background-color: #b76b6b;
+}
+  
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #739c80;
+    border-color: #757575;
+  }
+  
+  input[type="checkbox"]:checked:after {
+    content: '\2713';
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 18px;
+    display: block;
+    position: relative;
+  }
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .logo {
+        width: 30%;
+    }
+    .menu {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        size: 100%;
+    }
+    .list {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .navbar label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #e6e6e6;
+    }
+    #toggler:checked ~ .menu {
+        max-height: 100%;
+    }
+    h1 {
+        font-size: 70px;
+        line-height: 100px;
+    }
+
+    input[type="text"] {
+        font-size: 24px;
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        font-size: 25px;
+    }
+
+
+    #task-list li button {
+        font-size: 25px;
+        padding: 10px 20px;
+    }
+}
