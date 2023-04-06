@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alexander Garin | Calculator</title>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel="stylesheet" />
+    <link rel="stylesheet" href="calculator.css" />
+    <link rel="icon" href="files/ico.ico">
+    <script src="calculator.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <img class="logo" src="logo/alex-logo.png" alt="logo" />
+      <input type="checkbox" id="toggler" />
+      <label for="toggler"><i class="gg-menu"></i></label>
+      <div class="menu">
+        <ul class="list">
+          <li id="menu-link"><a href="index.html">Home</a></li>
+          <li id="menu-link"><a href="about.html">About</a></li>
+          <li id="menu-link"><a href="portfolio.html">Portfolio</a></li>
+          <li id="menu-link"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Calculator</h1>
+      <div class="calculator">
+        <div class="display">
+          <span id="result">0</span>
+        </div>
+        <div class="buttons">
+          <button class="clear" onclick="clearResult()">AC</button>
+          <button class="delete" onclick="deleteSymbol()">&larr;</button>
+          <button class="operation" onclick="appendOperator('/')">/</button>
+          <button class="number" onclick="appendNumber(7)">7</button>
+          <button class="number" onclick="appendNumber(8)">8</button>
+          <button class="number" onclick="appendNumber(9)">9</button>
+          <button class="operation" onclick="appendOperator('*')">x</button>
+          <button class="number" onclick="appendNumber(4)">4</button>
+          <button class="number" onclick="appendNumber(5)">5</button>
+          <button class="number" onclick="appendNumber(6)">6</button>
+          <button class="operation" onclick="appendOperator('-')">-</button>
+          <button class="number" onclick="appendNumber(1)">1</button>
+          <button class="number" onclick="appendNumber(2)">2</button>
+          <button class="number" onclick="appendNumber(3)">3</button>
+          <button class="operation" onclick="appendOperator('+')">+</button>
+          <button class="number-zero" onclick="appendNumber(0)">0</button>
+          <button class="decimal" onclick="appendDecimal()">.</button>
+          <button class="equals" onclick="calculate()">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

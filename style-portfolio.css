@@ -48,30 +48,29 @@ body {
     margin: 0 auto;
     padding: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .info {
     color: #e6e6e6;
+    justify-content: center;
     align-items: center;
     margin-top: 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    gap: 15%;
 }
 
 .load-image {
     border-radius: 5px;
     border-color: #e6e6e6;
-    display: grid;
     align-items: center;
     opacity: 0.8;
     transition: all 0.3s ease;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
     transition: all 0.3s ease;
-    width: 30%;
-    height: auto;
+    min-width: 200px;
+    max-width: 30vw;
 }
   .load-image:before {
     border-radius: 5px;
@@ -95,7 +94,6 @@ body {
     padding: 0 4px;
   }
   
-  /* Create four equal columns that sits next to each other */
   .column {
     flex: 25%;
     padding: 0 4px;
@@ -131,6 +129,7 @@ body {
     }
     .info {
         font-size: 30px;
+        display: block;
     }
 
     .load-image {
