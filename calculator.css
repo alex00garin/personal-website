@@ -140,6 +140,7 @@ background-color: #739c80
 @media screen and (max-width: 600px) {
     body {
         padding: 10px;
+        overflow: hidden;
     }
     .logo {
         width: 30%;
