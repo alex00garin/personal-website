@@ -133,6 +133,8 @@ h3 {
 @media (max-width: 600px) {
   body {
       padding: 10px;
+      overflow: hidden;
+
   }
   main {
     display: grid;
