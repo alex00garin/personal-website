@@ -5,13 +5,29 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-}
+  } 
 
 body {
+  height: 100vh;
+  width: 100vw;
   font-family: "Wire One";
   font-size: 50px;
   background-color: #404040;
   padding: 50px;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 30px;
+  color: #e6e6e6;
+}
+
+h3 {
+  font-size: 70px;
+  padding: 20px;
 }
 
 .navbar {
@@ -51,31 +67,33 @@ body {
 }
 
 .container {
-  display: grid;
+  line-height: 50px;
+  display: block;
   align-items: center;
-  justify-content: center;
   text-align: center;
   max-width: 500px;
   height: 100%;
-  font-size: 25px;
-  color: #e6e6e6;
-  margin: 20px auto;
-  padding: 30px;
-  position: relative;
-  z-index: 1;
+  border-radius: 20px;
 }
 
-h3 {
-  font-size: 70px;
+.buttons {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#speed-input {
+  height: 30px;
+  width: 150px;
 }
 
 #btn {
   font-family: "Wire One";
-  font-size: 20px;
-  margin: auto;
-  max-width: 150px;
+  font-size: 15px;
+  margin: 15px;
+  max-width: 100px;
   width: 100%;
-  height: 40px;
+  height: 30px;
   border-radius: 5px;
   background-color: #e6e6e6;
   border: none;
@@ -83,29 +101,50 @@ h3 {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-}
-
+  transition: all 0.3s ease-in-out;
+  }
+  
 #btn:hover {
-  background-color: #b76b6b;
-}
-
-.pics {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  max-width: fit-content;
-  background-color: #888888;
-  border-radius: 20px;
-  margin: 20px auto;
-  padding: 20px;
+    background-color: #b76b6b;
   }
 
-  @media (max-width: 768px) {
-    body {
+#game-board {
+    display: flex;
+    background-color: #888888;
+    width: 50vmin;
+    height: 50vmin;
+    display: grid;
+    grid-template-rows: repeat(42, 1fr);
+    grid-template-columns: repeat(42, 1fr);
+    border-radius: 10px;
+}
+
+.snake {
+    background-color: #d1d1d1;
+    border: .025vmin solid #404040;
+}
+
+.food {
+  background-color: #b65656;
+  border: .025vmin solid #404040;
+  border-radius: 50%; 
+}
+
+@media (max-width: 600px) {
+  body {
       padding: 10px;
+  }
+  main {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 30px;
+    color: #e6e6e6;
+  }
+  h3 {
+    font-size: 20px;
+    padding: 0  ;
   }
   #logo {
       width: 30%;
@@ -136,63 +175,37 @@ h3 {
     justify-content: center;
     text-align: center;
     max-width: 400px;
-    height: 80%;
     border-radius: 30px;
-    margin: 50px auto;
-    padding: 30px;
+    margin: 10px auto;
     font-size: 20px;
-  }
-}
-  
-  @media (max-width: 480px) {
-  body {
-      padding: 10px;
-  }
-  #logo {
-      width: 30%;
-  }
-  .menu {
-      width: 100%;
-      max-height: 0;
-      overflow: hidden;
-      size: 100%;
-  }
-  .list {
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-  }
-  .navbar label {
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer;
-      color: #e6e6e6;
-  }
-  #toggler:checked ~ .menu {
-      max-height: 100%;
-  }
-  .container {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 300px;
-    height: 60%;
-    border-radius: 30px;
-    margin: 20px auto;
-    padding: 30px;
-    font-size: 20px;
+    line-height: 30px;
   }
 
-  h3 {
-    font-size: 40px;
+  #speed-input {
+    height: 30px;
+    width: 100px;
+  }
+
+  #message #score {
+    font-size: 20px;
   }
 
     #btn {
       font-size: 15px;
-      margin: auto;
+      margin: 10px;
       max-width: 100px;
       width: 80%;
       height: 30px;
     }
+
+    #game-board {
+      display: flex;
+      background-color: #888888;
+      width: 90vmin;
+      height: 90vmin;
+      display: grid;
+      grid-template-rows: repeat(42, 1fr);
+      grid-template-columns: repeat(42, 1fr);
+      border-radius: 10px;
   }
+  } 

@@ -4,14 +4,17 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Alexander Garin | Memory Game</title>
+        <title>Alexander Garin | Snake Game</title>
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-boxed.css' rel='stylesheet'>
-        <link rel="stylesheet" href="mem-game.css" />
+        <link rel="stylesheet" href="snake-game.css" />
         <link rel="icon" href="files/ico.ico">
         <script src="navbar.js"></script>
+        <script src="snake-game.js" type="module" defer></script>
+
     </head>
+
 <body>
-    
+
     <nav class="navbar">
         <img id="logo" class="logo" src="files/alex-logo.png" alt="logo">
         <input type="checkbox" id="toggler" />
@@ -25,17 +28,21 @@
             </ul>
         </div>
     </nav>
-
+<main>
     <div class="container">
-        <h3>The Memory Game</h3>
         <div id="message">
-            <p>Welcome to the Memory Game!</p>
+            <h3>The Snake Game</h3>
         </div>
-        <br>
-        <button id="btn" type="submit">Reset</button>
-        <div id="pics" class="pics"></div>
+        <div id="score">Score: 0</div>
+        <div class="buttons">
+            <input type="range" id="speed-input" name="speed" min="1" max="10" value="7">
+            <span id="speedValue"></span>
+            <button id="btn">Reset</button>
+        </div>
+       <!-- <br> -->
     </div>
-    
-    <script src="mem-game.js"></script>
+
+    <div id="game-board"></div>
+</main>
 </body>
 </html>
