@@ -16,7 +16,7 @@
         tailwind.config = {theme: {extend: {colors: {'back': '#2d2d2d',}}}}
     </script>      
 </head>
-<body>
+<body class="scroll-smooth">
 
     <nav class="md:bg-transparent fixed z-20 top-0 left-0 w-full rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm hover:backdrop-blur-md bg-opacity-0">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -188,21 +188,21 @@
                 <feGaussianBlur stdDeviation="61" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur></filter></defs><g filter="url(#bbblurry-filter)"><ellipse rx="154" ry="103.5" cx="196.9878668597364" cy="406.7447754867434" fill="hsla(55, 94%, 54%, 1.00)"></ellipse></g></svg>        
         </div>
 
-        <section class="bg-transparent z-10">
+        <section class="font-outfit bg-transparent z-10">
             <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-neutral-300">Contact Me</h2>
-                <p class="mb-8 lg:mb-16 font-light text-center text-neutral-300 sm:text-xl">Feel free to reach me through the contact form below.</p>
+                <h2 class="font-outfit mb-4 text-4xl tracking-tight font-extrabold text-center text-neutral-300">Contact Me</h2>
+                <p class="font-outfit mb-8 lg:mb-16 font-light text-center text-neutral-300 sm:text-xl">Feel free to reach me through the contact form below.</p>
                 <form action="#" id="contactForm" class="space-y-8">
                     <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-neutral-300">Your name</label>
-                        <input type="text" id="name" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Write your name here" required>
+                        <label for="name" class="font-outfit block mb-2 text-sm font-medium text-neutral-300">Your name</label>
+                        <input type="text" id="name" class="font-outfit block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Write your name here" required>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
                         <input type="email" id="email" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="your@email.com" required>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                        <label for="message" class="block mb-2 text-sm font-medium text-neutral-300">Your message</label>
                         <textarea id="message" rows="6" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Leave a comment..."></textarea>
                     </div>
 
@@ -233,7 +233,7 @@
         </a>
     </div>
 
-    <footer class="bg-back shadow pt-10">
+    <footer class="bg-back shadow pt-5">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="flex space-x-5 sm:justify-center md:mb-5">
                 <a target="_blank" href="https://github.com/alex00garin" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
@@ -324,23 +324,26 @@
     
     </script>
     <script>
-        //smooth scrolling
         function smoothScroll(target) {
             const targetElement = document.querySelector(target);
             const headerHeight = document.querySelector('nav').offsetHeight;
             const targetPosition = targetElement.getBoundingClientRect().top;
             const startPosition = window.pageYOffset;
             const distance = targetPosition - headerHeight;
-            const duration = 1000; 
+            const duration = 1000;
+            const framesPerSecond = 60; // Throttle frame rate
 
-            let startTime = null;
+            const startTime = performance.now();
 
             function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
                 const timeElapsed = currentTime - startTime;
-                const ease = Math.easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                const progress = Math.min(1, timeElapsed / duration);
+                const ease = Math.easeInOutQuad(progress, startPosition, distance, 1);
                 window.scrollTo(0, ease);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
             }
 
             Math.easeInOutQuad = function (t, b, c, d) {
