@@ -1,53 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Alexander Garin | Personal Website</title>
-        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-boxed.css' rel='stylesheet'>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="icon" href="files/ico.ico">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's Website</title>   
+    <link rel="stylesheet" href="tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script>
+        tailwind.config = {theme: {extend: {colors: {'back': '#2d2d2d',}}}}
+    </script>      
+</head>
+<body>
 
-    <body>
-        <nav class="navbar">
-            <img id="logo" class="logo" src="files/alex-logo.png" alt="logo">
-            <input type="checkbox" id="toggler" />
-            <label for="toggler"><i class="gg-menu-boxed"></i></label>
-            <div class="menu">
-                <ul class="list">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <!-- <li><a href="contact.html">Contact</a></li> -->
+    <nav class="md:bg-transparent fixed z-20 top-0 left-0 w-full rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm hover:backdrop-blur-md bg-opacity-0">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#home" class="flex items-center">
+                <span class="text-neutral-300 self-center text-lg  font-outfit font-semibold whitespace-nowrap">ALEXANDER GARIN</span>
+            </a>
+            <div class="flex md:order-2">
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="h-full w-full bg-neutral-500 md:bg-transparent rounded-md bg-clip-padding md:backdrop-filter-none backdrop-filter md:backdrop-blur-none backdrop-blur-md bg-opacity-20 hidden md:block md:w-auto" id="navbar-sticky">
+                <ul class="font-light flex flex-col p-4 md:p-0 mt-0 md:flex-row md:space-x-12 md:mt-0">
+                    <li><a href="#home" class="block py-4 pl-5 pr-4 text-neutral-300 hover:bg-neutral-600 md:hover:bg-transparent md:p-0 md:px-7 md:py-2 border-solid border-transparent md:border hover:border-neutral-300 rounded md:rounded-3xl" onclick="smoothScroll('#home')">HOME</a></li>
+                    <li><a href="#about"class="block py-4 pl-5 pr-4 text-neutral-300 hover:bg-neutral-600 md:hover:bg-transparent md:py-1 md:px-7 md:py-2 border-solid border-transparent md:border hover:border-neutral-300 rounded md:rounded-3xl" onclick="smoothScroll('#about')">ABOUT</a></li>
+                    <!-- <li><a href="#work"class="block py-4 pl-5 pr-4 text-neutral-300 hover:bg-neutral-600 md:hover:bg-transparent md:py-1 md:px-7 md:py-2 border-solid border-transparent md:border hover:border-neutral-300 rounded md:rounded-3xl" onclick="smoothScroll('#work')">WORK</a></li> -->
+                    <li><a href="#contact"class="block py-4 pl-5 pr-4 text-neutral-300 hover:bg-neutral-600 md:hover:bg-transparent md:p-0 md:px-7 md:py-2 border-solid border-transparent md:border hover:border-neutral-300 rounded md:rounded-3xl" onclick="smoothScroll('#contact')">CONTACT</a></li>
                 </ul>
             </div>
-        </nav>
-        
-        <div class="container">
-          <div class="info">
-            <span class="name">
-              I'm Alexander Garin
-            </span>
-            <br />
-                <span></span>
-                <br />
-                <span></span>
-              </span>
-            </span>
-            <span class="info-text">
-              <span>
-                This is my official portfolio website where 
-                I showcase all of my work related to software development.              
-              </span>
-              <br />
-              <span>
-                <!-- <a class="button" target="_blank" href="files/Aleksandr_Garin_CV.pdf">Download CV</a> -->
-              </span>
-            </span>
-            
-          </div>
         </div>
-    </body>
+    </nav>
+    
+    <section id="home" class="font-outfit flex flex-nowrap overflow-hidden h-screen w-auto bg-back justify-center items-center text-center">
+        
+        <div class="absolute w-full md:max-w-xl lg:max-w-3xl top-0 left-0">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 640 800" opacity="1"><defs><filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur></filter></defs><g filter="url(#bbblurry-filter)"><ellipse rx="239" ry="277.5" cx="195.27342719432573" cy="249.31185625485728" fill="hsla(37, 100%, 50%, .30)"></ellipse></g></svg>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 ">
+            <div id="text-4" class="block text-center font-outfit justify-center items-center md:top-72 z-10">
+                <h1 class="text-neutral-300 text-4xl md:text-6xl">Hi, I'm Alex</h1>
+                <p class="text-neutral-300 font-light mt-10 mx-20 text-lg md:text-2xl">This is my official portfolio website where I showcase all of my work related to software development.</p>
+                <a href="#about"class="mt-10 md:mt-15 inline-flex items-center justify-center px-5 py-3 text-base font-light text-center text-neutral-300 bg-neutral-500 rounded-lg hover:bg-neutral-800 focus:ring-1 focus:ring-neutral-300 dark:focus:ring-neutral-300" onclick="smoothScroll('#about')">
+                    Find out more
+                    <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+                </a>
+            </div>
+
+            <div class="mt-20 md:mt-0 items-center text-center my-auto mx-auto overflow-hidden w-48 h-48 md:w-72 md:h-72 border border-neutral-300 rounded-3xl flex flex-col justify-center">
+                <p id="text-1" class="text-1 font-outfit font-extrabold text-neutral-300 text-5xl md:text-7xl tracking-widest">POR-</p>
+                <p id="text-2" class="text-2 font-outfit font-extrabold text-neutral-300 text-5xl md:text-7xl tracking-widest">TFO-</p>
+                <p id="text-3" class="text-3 font-outfit font-extrabold text-neutral-300 text-5xl md:text-7xl tracking-widest">LIO.</p>
+            </div>
+        </div>
+        
+    
+    </section>
+
+    <section id="about" class="font-outfit flex h-full md:h-screen w-auto bg-back px-5 md:px-10 overflow-hidden">
+        
+        <div class="absolute w-full md:max-w-lg lg:max-w-3xl border-blur border-5 justify-end right-0">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 640 800" opacity="0.22"><defs><filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feGaussianBlur stdDeviation="73" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur></filter></defs><g filter="url(#bbblurry-filter)"><ellipse rx="202.5" ry="149" cx="462.8146422378661" cy="303.43768070250985" fill="hsla(88, 92%, 24%, 1.00)"></ellipse></g></svg>        
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 mx-auto gap-x-16 md:gap-36 justify-between z-10">
+
+            <div id="controls-carousel" class="font-outfit flex items-center text-center md:my-auto mx-auto overflow-hidden w-48 h-48 md:w-72 md:h-72 border border-neutral-300 rounded-3xl flex-col justify-center" data-carousel="slide">
+                <div class="relative h-48 w-48 md:w-72 mx-auto my-auto top-5 overflow-hidden rounded-lg ">
+                    <div class="hidden duration-700 ease-in-out justify-center items-center" data-carousel-item>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Web</h5>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Design</h5>
+                        <img class="mt-5 mx-auto" src="components/web-design.png" alt="web-design">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out justify-center items-center" data-carousel-item="active">
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Graphic</h5>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Design</h5>
+                        <img class="mt-5 mx-auto" src="components/graphic-design.png" alt="graphic-design">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Web</h5>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Development</h5>
+                        <img class="mt-5 mx-auto" src="components/web-development.png" alt="web-development">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Responsive</h5>
+                        <h5 class="text-2xl  uppercase font-extrabold tracking text-center text-neutral-300">Design</h5>
+                        <img class="mt-5 mx-auto" src="components/responsive-design.png" alt="responsive-design">
+                    </div>
+                </div>
+            </div>
+
+            <div class="block right-0 my-auto">    
+                <h1 class="text-neutral-300 text-2xl md:text-4xl text-start mt-10 md:mt-0 font-outfit">Software Developer Jurney</h1>
+
+                <ol class="block mt-10 md:mt-16 border-l border-gray-200 dark:border-neutral-700 justify-start text-left ml-5">                  
+                    <li class="mb-5 ml-6 text-left animate-scroll">            
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex items-center mb-1 ml-5 md:text-md font-semibold text-neutral-300">HTML</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">January 2023</time>
+                        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Designed all sorts of web pages.</p>
+                    </li>
+                    <li class="mb-5 ml-6 text-left animate-scroll">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex mb-1 ml-5 text-md font-semibold text-neutral-300">CSS (Tailwind)</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2023</time>
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Styled things up and kept them in line with Figma.</p>
+                    </li>
+                    <li class="mb-5 ml-6 text-left animate-scroll">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex mb-1 ml-5 text-md font-semibold text-neutral-300">JavaScript</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">April 2023</time>
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Learned how to make websites interactive and lively.</p>
+                    </li>
+                    <li class="mb-5 ml-6 text-left animate-scroll">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex mb-1 ml-5 text-md font-semibold text-neutral-300">React</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">June 2023</time>
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Learned how to work with and crafted UI components.</p>
+                    </li>
+                    <li class="mb-5 ml-6 text-left animate-scroll">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex mb-1 ml-5 text-md font-semibold text-neutral-300">Next.js/Node.js</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 2023</time>
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">I am learning how to built fast and search-friendly sites.</p>
+                    </li>
+                    
+                    <li class="mb-5 ml-6 text-left animate-scroll">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-neutral-100 rounded-full -left-3 ring-8 ring-neutral-300 dark:ring-neutral-800 dark:bg-neutral-600">
+                            <svg class="w-2.5 h-2.5 text-neutral-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                            </svg>
+                        </span>
+                        <h3 class="flex mb-1 ml-5 text-md font-semibold text-neutral-300">Python/Java</h3>
+                        <time class="flex mb-2 ml-4 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">...</time>
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Aiming to master Python and Java for diverse applications.</p>
+                    </li>
+                </ol>
+            </div>
+
+
+        </div>
+            
+    
+    </section>
+
+    <!-- <section id="work" class="flex h-screen w-auto items-center justify-center bg-back"></section> -->
+    
+    <section id="contact" class="flex flex-col h-screen w-auto items-center justify-center bg-back px-5">
+        <div class="absolute w-full md:max-w-xl lg:max-w-3xl left-0">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 640 800" opacity="0.24"><defs><filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feGaussianBlur stdDeviation="61" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur></filter></defs><g filter="url(#bbblurry-filter)"><ellipse rx="154" ry="103.5" cx="196.9878668597364" cy="406.7447754867434" fill="hsla(55, 94%, 54%, 1.00)"></ellipse></g></svg>        
+        </div>
+
+        <section class="bg-transparent z-20">
+            <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-neutral-300">Contact Me</h2>
+                <p class="mb-8 lg:mb-16 font-light text-center text-neutral-300 sm:text-xl">Feel free to reach me through the contact form below.</p>
+                <form action="#" id="contactForm" class="space-y-8">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-neutral-300">Your name</label>
+                        <input type="text" id="name" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Write your name here" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                        <input type="email" id="email" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="your@email.com" required>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                        <textarea id="message" rows="6" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Leave a comment..."></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-0">
+                        <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-neutral-300 rounded-lg bg-neutral-500 hover:bg-neutral-800 sm:w-fit focus:ring-1 focus:outline-none focus:ring-neutral-300">Send message</button>
+
+                        <div id="alert" class="hidden w-full max-w-xs p-3  text-neutral-300 bg-neutral-500 rounded-lg shadow space-x-4 transition-opacity duration-800 ease-in-out">
+                            <div class="flex items-center ">
+                                <svg class="w-5 h-5 text-neutral-300 rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"/>
+                                </svg>
+                                <div class="relative pl-2 text-sm font-normal">Message sent successfully!</div>
+                            </div>
+                        </div>
+    
+                    </div>
+                                
+                </form>
+            </div>
+          </section>
+    </section>
+
+    <div class="button fixed z-20 bottom-10 right-10 hover:scale-110 border border-transparent hover:border-neutral-300 rounded-xl">
+        <a href="#home" onclick="smoothScroll('#home')">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48" fill="#d4d4d4">
+                <path d="M469-212v-494L228-465l-16-15 268-268 268 268-16 15-241-241v494h-22Z"/>
+            </svg>
+        </a>
+    </div>
+
+    <footer class="bg-back shadow pt-10">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="flex space-x-5 sm:justify-center md:mb-5">
+                <a target="_blank" href="https://github.com/alex00garin" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">GitHub account</span>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/alexander-garin-a49072265/" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 15 15">
+                        <path fill-rule="evenodd" d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" clip-rule="evenodd"/>
+                        <path d="M3 5.012H0V15h3V5.012Z"/>
+                    </svg>
+                    <span class="sr-only">LinkedIn account</span>
+                </a>
+            </div>
+            <hr class="my-6 border-neutral-300 sm:mx-auto lg:my-8" />
+            <div class="flex justify-between mx-auto">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#home" class="flex items-center mb-4 sm:mb-0">
+                    <span class="text-neutral-300 self-center text-sm font-outfit font-light whitespace-nowrap">ALEXANDER GARIN</span>
+                </a>
+            </div>
+            
+            <span class="self-center font-outfit text-neutral-400 text-sm font-light whitespace-nowrap hover:underline">© 2023 Aleksandr Garin™</span>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+            // Initialize Firebase
+        const config = {
+            apiKey: "AIzaSyD42D4OdsxbVdIne3LHWOkuYYzj9eKh4O8",
+            authDomain: "test-c3b39.firebaseapp.com",
+            databaseURL: "https://test-c3b39-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "test-c3b39",
+            storageBucket: "test-c3b39.appspot.com",
+            messagingSenderId: "245503091016",
+            appId: "1:245503091016:web:016cd165e37f1215d6137d"            
+        };
+        
+        firebase.initializeApp(config);
+
+        // Reference messages collection
+        var messagesRef = firebase.database().ref('messages');
+
+        // Listen for form submit
+        document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+        // Submit form
+        function submitForm(e) {
+            e.preventDefault();
+
+            //Get value
+            var name = getInputVal('name');
+            var email = getInputVal('email');
+            var message = getInputVal('message');
+
+            // Save message
+            saveMessage(name, email, message);
+
+            // Show alert
+            document.getElementById('alert').style.display = 'block';
+
+            // Hide alert after 3 seconds
+            setTimeout(function() {
+                document.getElementById('alert').style.display = 'none';
+            }, 3000);
+
+            // Clear form
+            document.getElementById('contactForm').reset();
+        }
+
+        // Function to get form value
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+
+        // Save message to firebase
+        function saveMessage(name, email, message) {
+            var newMessageRef = messagesRef.push();
+            newMessageRef.set({
+                name: name,
+                email: email,
+                message: message
+            });
+        }
+    
+    </script>
+    <script>
+        //smooth scrolling
+        function smoothScroll(target) {
+            const targetElement = document.querySelector(target);
+            const headerHeight = document.querySelector('nav').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - headerHeight;
+            const duration = 1000; 
+
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const ease = Math.easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, ease);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            Math.easeInOutQuad = function (t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            };
+
+            requestAnimationFrame(animation);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <style>
+        .animate-scroll {
+        opacity: 0;
+        transform: translateX(100px); /* Start from the right */
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-scroll-visible {
+        opacity: 1;
+        transform: translateX(0);
+        }
+        .text-1, .text-2, .text-3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: right;
+        animation: marquee 5s linear infinite;
+        }
+
+        @keyframes marquee {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: -100%;
+        }
+        }
+
+        @media (min-width: 800px) {
+            li {
+                transition: 0.3s; 
+            }
+            ul:hover li {
+                filter: blur(2px);
+            }
+            ul li:hover {
+                filter: blur(0);
+            }
+        }
+        
+    </style>
+
+</body>
 </html>
