@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex's Website</title>   
-    <link rel="icon" href="files/ico.ico">
     <link rel="stylesheet" href="tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
     <script>
         tailwind.config = {theme: {extend: {colors: {'back': '#2d2d2d',}}}}
-    </script>
-    
+    </script>      
 </head>
 <body class="scroll-smooth">
 
@@ -193,7 +191,7 @@
             <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <h2 class="font-outfit mb-4 text-4xl tracking-tight font-extrabold text-center text-neutral-300">Contact Me</h2>
                 <p class="font-outfit mb-8 lg:mb-16 font-light text-center text-neutral-300 sm:text-xl">Feel free to reach me through the contact form below.</p>
-                <form action="#" id="contactForm" class="space-y-8">
+                <form action="#" id="contactForm" class="space-y-8 justify-center">
                     <div>
                         <label for="name" class="font-outfit block mb-2 text-sm font-medium text-neutral-300">Your name</label>
                         <input type="text" id="name" class="font-outfit block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Write your name here" required>
@@ -207,20 +205,9 @@
                         <textarea id="message" rows="6" class="block p-3 w-full text-sm text-neutral-200 bg-neutral-500 rounded-lg border border-gray-300 shadow-sm focus:ring-1 focus:outline-none focus:ring-neutral-300" placeholder="Leave a comment..."></textarea>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-0">
-                        <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-neutral-300 rounded-lg bg-neutral-500 hover:bg-neutral-800 sm:w-fit focus:ring-1 focus:outline-none focus:ring-neutral-300">Send message</button>
-
-                        <div id="alert" class="hidden w-full max-w-xs p-3  text-neutral-300 bg-neutral-500 rounded-lg shadow space-x-4 transition-opacity duration-800 ease-in-out">
-                            <div class="flex items-center ">
-                                <svg class="w-5 h-5 text-neutral-300 rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"/>
-                                </svg>
-                                <div class="relative pl-2 text-sm font-normal">Message sent successfully!</div>
-                            </div>
-                        </div>
-    
-                    </div>
-                                
+                    <div class="flex justify-center">
+                        <button id="submitBtn" type="submit" class="py-3 px-5 text-sm font-medium text-center text-neutral-300 rounded-lg bg-neutral-500 hover:bg-neutral-800 sm:w-fit focus:ring-1 focus:outline-none focus:ring-neutral-300">Send message</button>
+                    </div>                                               
                 </form>
             </div>
           </section>
@@ -302,66 +289,6 @@
         });
     </script>
     <script>
-            // Initialize Firebase
-        const config = {
-            apiKey: "AIzaSyD42D4OdsxbVdIne3LHWOkuYYzj9eKh4O8",
-            authDomain: "test-c3b39.firebaseapp.com",
-            databaseURL: "https://test-c3b39-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "test-c3b39",
-            storageBucket: "test-c3b39.appspot.com",
-            messagingSenderId: "245503091016",
-            appId: "1:245503091016:web:016cd165e37f1215d6137d"            
-        };
-        
-        firebase.initializeApp(config);
-
-        // Reference messages collection
-        var messagesRef = firebase.database().ref('messages');
-
-        // Listen for form submit
-        document.getElementById('contactForm').addEventListener('submit', submitForm);
-
-        // Submit form
-        function submitForm(e) {
-            e.preventDefault();
-
-            //Get value
-            var name = getInputVal('name');
-            var email = getInputVal('email');
-            var message = getInputVal('message');
-
-            // Save message
-            saveMessage(name, email, message);
-
-            // Show alert
-            document.getElementById('alert').style.display = 'block';
-
-            // Hide alert after 3 seconds
-            setTimeout(function() {
-                document.getElementById('alert').style.display = 'none';
-            }, 3000);
-
-            // Clear form
-            document.getElementById('contactForm').reset();
-        }
-
-        // Function to get form value
-        function getInputVal(id) {
-            return document.getElementById(id).value;
-        }
-
-        // Save message to firebase
-        function saveMessage(name, email, message) {
-            var newMessageRef = messagesRef.push();
-            newMessageRef.set({
-                name: name,
-                email: email,
-                message: message
-            });
-        }
-    
-    </script>
-    <script>
         function smoothScroll(target) {
             const targetElement = document.querySelector(target);
             const headerHeight = document.querySelector('nav').offsetHeight;
@@ -393,6 +320,82 @@
 
             requestAnimationFrame(animation);
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const submitBtn = document.getElementById("submitBtn");
+
+            submitBtn.addEventListener("click", function() {
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            // Get form values
+            var name = getInputVal('name');
+            var email = getInputVal('email');
+            var message = getInputVal('message');
+
+            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                // Show an error message or handle invalid inputs
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Send message";
+                return;
+            }
+
+            // Simulate form submission
+            setTimeout(function() {
+            submitBtn.innerText = "Sent!";
+            
+            // Initialize Firebase
+            const config = {
+                apiKey: "AIzaSyD42D4OdsxbVdIne3LHWOkuYYzj9eKh4O8",
+                authDomain: "test-c3b39.firebaseapp.com",
+                databaseURL: "https://test-c3b39-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "test-c3b39",
+                storageBucket: "test-c3b39.appspot.com",
+                messagingSenderId: "245503091016",
+                appId: "1:245503091016:web:016cd165e37f1215d6137d"            
+
+            };
+
+            firebase.initializeApp(config);
+
+            // Reference messages collection
+            var messagesRef = firebase.database().ref('messages');
+
+            // Save message to Firebase
+            saveMessage(messagesRef, name, email, message);
+
+            // Show alert
+            document.getElementById('alert').style.display = 'block';
+
+            // Hide alert after 1.5 seconds
+            setTimeout(function() {
+                document.getElementById('alert').style.display = 'none';
+                submitBtn.innerText = "Send message";
+                submitBtn.disabled = false;
+            }, 1500);
+
+            // Clear form
+            document.getElementById('contactForm').reset();
+        }, 1500);
+    });
+});
+
+// Function to get form value
+function getInputVal(id) {
+    return document.getElementById(id).value;
+}
+
+// Save message to Firebase
+function saveMessage(messagesRef, name, email, message) {
+    var newMessageRef = messagesRef.push();
+    newMessageRef.set({
+        name: name,
+        email: email,
+        message: message
+    });
+}
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <style>
